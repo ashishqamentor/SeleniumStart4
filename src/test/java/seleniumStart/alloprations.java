@@ -5,17 +5,26 @@ import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+
+import com.google.common.io.Files;
 
 public class alloprations {
 
@@ -128,7 +137,6 @@ public class alloprations {
 		Thread.sleep(2000);
 		w.findElement(By.xpath("//div[@class='uploadBtnCont']")).click();
 		
-		
 		//Copy File Path to Clipboard
 		String filePath = "C:\\Users\\koush\\OneDrive\\Desktop\\doc.txt";
 
@@ -152,8 +160,115 @@ public class alloprations {
 		robot.keyRelease(KeyEvent.VK_ENTER);
 	
 	}
+
+	public void dynamicDropdown(String country) throws InterruptedException
+	{
+		w.get("https://rahulshettyacademy.com/dropdownsPractise/");
+		w.findElement(By.xpath("//input[contains(@id, 'autosuggest' )]")).sendKeys("China");
+		
+		List<WebElement> list = w.findElements(By.xpath("//li[@role='presentation']/a")); //[ webele 1,ele2 ,ele3,..]
+		for(WebElement temp :list)
+		{
+			String countryname = temp.getText();
+			System.out.println(countryname);
+			if(countryname.equalsIgnoreCase(country))
+			{
+				Thread.sleep(2000);
+				temp.click();
+				break;
+			}
+		}
+	}
 	
-	public static void main(String[] args) throws Exception
+	public void multiplewindow()
+	{
+		w.get("https://rahulshettyacademy.com/AutomationPractice/");
+		String  originalwindow= w.getWindowHandle();   //dfgfdht34534646fhdf
+		System.out.println(w.getTitle());
+		w.findElement(By.cssSelector("#opentab")).click();   // 2
+		Set<String> allwindow=   w.getWindowHandles();
+		
+		for(String temp :allwindow)
+		{
+			System.out.println(temp);   //
+			  if(!originalwindow.equalsIgnoreCase(temp))     
+			  {
+				  w.switchTo().window(temp);
+				  System.out.println(w.getTitle());
+				  
+				  
+				  w.switchTo().window(originalwindow);
+				  System.out.println(w.getTitle());
+				//  w.close();
+				  break;
+				  
+			  }			
+		}
+		w.quit();
+		
+	}
+	
+	/*
+	 * opon  https://rahulshettyacademy.com/AutomationPractice/ site  ,
+	 * open new window
+	 * make list of menu and click on  "about us' from menu
+	 * 
+	*/
+
+	public void table()
+	{
+		w.get("https://rahulshettyacademy.com/AutomationPractice/");
+		List<WebElement> courselist = w.findElements(By.xpath("//table[@id='product']/tbody/tr/td[2]"));
+		
+		for(WebElement temp : courselist)
+		{
+			String course = temp.getText();
+			System.out.println(course);
+			if(course.equalsIgnoreCase("Master Selenium Automation in simple Python Language"))
+			{
+				String price = temp.findElement(By.xpath("following-sibling ::td")).getText();
+				System.out.println(price);
+				break;
+			}
+						
+		}
+		
+	}
+	
+	/*
+	 * get all details of from table for rolaldo
+	 */
+	
+	public void frameEx()
+	{
+		w.get("https://rahulshettyacademy.com/AutomationPractice/");
+		System.out.println(w.getTitle());
+		WebElement frame = w.findElement(By.cssSelector("#courses-iframe"));
+		w.switchTo().frame(frame);
+		System.out.println(w.getTitle());
+		
+		List<WebElement> itemsinframe = w.findElements(By.xpath("//div[@role='region']/following-sibling::div/nav/div/div/div[2]/a"));
+		for(WebElement temp :itemsinframe)
+		{
+			String menu = temp.getText();
+			System.out.println(menu);
+		}
+	}
+	
+	public void takescreenshot() throws Exception
+	{
+		w.get("https://rahulshettyacademy.com/AutomationPractice/");
+		System.out.println(w.getTitle());
+		
+		TakesScreenshot tc = (TakesScreenshot) w;
+		File src = tc.getScreenshotAs(OutputType.FILE);
+		File dest  = new File("./Screenshot/test.png");
+		Files.copy(src, dest);
+		
+	}
+	
+	
+ 	public static void main(String[] args) throws Exception
 	{
 		alloprations o = new alloprations();
 		o.launch();
@@ -164,7 +279,12 @@ public class alloprations {
 		//o.actionex();
 		//o.dragndrop();
 		//o.fileupload();
-		o.fileuploadRobot();
+		//o.fileuploadRobot();
+		//o.dynamicDropdown("Taiwan, Province of China");
+		//o.multiplewindow();
+		//o.table();
+		//o.frameEx();
+		o.takescreenshot();
 	}
 
 }
