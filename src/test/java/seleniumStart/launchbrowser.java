@@ -3,17 +3,22 @@ package seleniumStart;
 import java.time.Duration;
 import java.util.Scanner;
 
+import org.jspecify.annotations.Nullable;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class launchbrowser 
 {
-	public WebDriver w;
+	public WebDriver w;  //null
 	
 	// launch browser from use choice  ex user enter chrome , edge
 	public void launch(String browsername)
@@ -62,6 +67,16 @@ public class launchbrowser
 		
 		
 	}
+	
+	
+	public WebElement waitforBy(By b, WebDriver w2)
+	{
+		WebDriverWait wait = new WebDriverWait(w2, Duration.ofSeconds(10));
+		WebElement e = wait.until(  ExpectedConditions.visibilityOfElementLocated(b));
+	
+		return e;
+	}
+	
 	
 	public static void main(String[] args) 
 	{

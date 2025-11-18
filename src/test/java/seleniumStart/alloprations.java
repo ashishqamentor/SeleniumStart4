@@ -10,10 +10,14 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.Iterator;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Set;
+
+import javax.xml.xpath.XPath;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -22,11 +26,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.google.common.io.Files;
 
-public class alloprations {
+public class alloprations extends launchbrowser {
 
 	WebDriver w;
 	public void launch()
@@ -36,7 +44,7 @@ public class alloprations {
 		w= new ChromeDriver(op);
 		w.manage().window().maximize();
 		w.manage().deleteAllCookies();
-		w.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+	//	w.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		
 	}
 	
@@ -266,9 +274,47 @@ public class alloprations {
 		Files.copy(src, dest);
 		
 	}
+		
+	public void waitEx()
+	{
+		w.get("https://www.hyrtutorials.com/p/waits-demo.html");
+		w.findElement(By.id("btn1")).click();
+		w.findElement(By.id("txt1")).sendKeys("ashish");
+	}
+	
+	public void waitEx1()
+	{
+		w.get("https://www.hyrtutorials.com/p/waits-demo.html");
+		w.findElement(By.id("btn1")).click();
+	
+		By b = By.id("txt1");		
+		waitforBy(b,w).sendKeys("ashish");
+				
+		//WebDriverWait wait = new WebDriverWait(w, Duration.ofSeconds(10));
+		//wait.until(  ExpectedConditions.visibilityOfElementLocated(b)).sendKeys("ashish");
+	}
+	
+	public void fulentwait()
+	{
+		w.get("https://www.hyrtutorials.com/p/waits-demo.html");
+		w.findElement(By.id("btn1")).click();
+	//	w.findElement(By.id("txt1")).sendKeys("ashish");
+		
+		Wait<WebDriver> wait = new FluentWait<>(w)
+				.withTimeout(Duration.ofSeconds(10))
+				.pollingEvery(Duration.ofMillis(250))
+				.ignoring(NoSuchElementException.class)
+				.ignoring(ElementClickInterceptedException.class);
+		
+		By b = By.id("txt1");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(b)).sendKeys("ashish");
+	}
+	
+
+
 	
 	
- 	public static void main(String[] args) throws Exception
+  	public static void main(String[] args) 
 	{
 		alloprations o = new alloprations();
 		o.launch();
@@ -284,7 +330,11 @@ public class alloprations {
 		//o.multiplewindow();
 		//o.table();
 		//o.frameEx();
-		o.takescreenshot();
+		//o.takescreenshot();
+		//o.waitEx();
+		o.waitEx1();
+		//o.fulentwait();
+
 	}
 
 }
