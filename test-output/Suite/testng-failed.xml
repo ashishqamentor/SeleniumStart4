@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="tests" name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" parallel="tests" name="Test(failed)">
+    <parameter name="op" value="option3"/>
+    <parameter name="op1" value="Option1"/>
+    <parameter name="name" value="ashish"/>
+    <groups>
+      <run>
+        <include name="regression"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="seleniumStart.TestNgDemo">
+        <methods>
+          <include name="alertEx" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- seleniumStart.TestNgDemo -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

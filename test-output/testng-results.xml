@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="4" total="5" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-11-20T22:48:44 IST" name="Suite" finished-at="2025-11-20T22:48:48 IST" duration-ms="4570">
+    <groups>
+      <group name="regression">
+        <method signature="TestNgDemo.alertEx(java.lang.String)[pri:3, instance:seleniumStart.TestNgDemo@45d84a20]" name="alertEx" class="seleniumStart.TestNgDemo"/>
+      </group> <!-- regression -->
+    </groups>
+    <test started-at="2025-11-20T22:48:44 IST" name="Test2" finished-at="2025-11-20T22:48:44 IST" duration-ms="13">
+    </test> <!-- Test2 -->
+    <test started-at="2025-11-20T22:48:44 IST" name="Test" finished-at="2025-11-20T22:48:48 IST" duration-ms="4570">
+      <class name="seleniumStart.TestNgDemo">
+        <test-method is-config="true" signature="launch()[pri:0, instance:seleniumStart.TestNgDemo@45d84a20]" started-at="2025-11-20T22:48:44 IST" name="launch" finished-at="2025-11-20T22:48:45 IST" duration-ms="1577" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launch -->
+        <test-method signature="alertEx(java.lang.String)[pri:3, instance:seleniumStart.TestNgDemo@45d84a20]" started-at="2025-11-20T22:48:45 IST" name="alertEx" finished-at="2025-11-20T22:48:48 IST" duration-ms="2735" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ashish]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- alertEx -->
+        <test-method is-config="true" signature="terminate()[pri:0, instance:seleniumStart.TestNgDemo@45d84a20]" started-at="2025-11-20T22:48:48 IST" name="terminate" finished-at="2025-11-20T22:48:48 IST" duration-ms="185" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- terminate -->
+      </class> <!-- seleniumStart.TestNgDemo -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

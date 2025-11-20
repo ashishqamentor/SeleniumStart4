@@ -44,8 +44,7 @@ public class alloprations extends launchbrowser {
 		w= new ChromeDriver(op);
 		w.manage().window().maximize();
 		w.manage().deleteAllCookies();
-	//	w.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		
+		w.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));	
 	}
 	
 	public void navigationEx()
@@ -58,7 +57,6 @@ public class alloprations extends launchbrowser {
 		w.navigate().forward();
 		System.out.println(   w.getTitle() );
 		w.navigate().refresh();
-		
 	}
 
 	public void locator()
@@ -309,10 +307,6 @@ public class alloprations extends launchbrowser {
 		By b = By.id("txt1");
 		wait.until(ExpectedConditions.visibilityOfElementLocated(b)).sendKeys("ashish");
 	}
-	
-
-
-	
 	
   	public static void main(String[] args) 
 	{

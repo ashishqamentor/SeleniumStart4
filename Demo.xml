@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+
+
+<parameter name="op" value="option3"></parameter>
+<parameter name="op1" value="Option1"></parameter>
+<parameter name="name" value="ashish"></parameter>
+
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="seleniumStart.TestNgDemo"/>
+    </classes>
+  </test> <!-- Test -->
+
+</suite> <!-- Suite -->
