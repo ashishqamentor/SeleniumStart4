@@ -1,5 +1,7 @@
 package seleniumStart;
 
+import static org.testng.Assert.assertEquals;
+
 import java.time.Duration;
 
 import org.openqa.selenium.Alert;
@@ -45,7 +47,7 @@ public class TestNgDemo
 	}
 	
 	@Parameters({"op","op1"})
-	@Test(priority = 1,groups = "sanity")
+	@Test(priority = 1,groups = "sanity", retryAnalyzer = retry.class)
 	public void selectEx(String opt,String opt1)
 	{
 		w.get("https://rahulshettyacademy.com/AutomationPractice/");
@@ -54,6 +56,7 @@ public class TestNgDemo
 		s.selectByIndex(2);
 		s.selectByValue(opt);
 		s.selectByVisibleText(opt1);
+		assertEquals(false, true);
 	}
 	
 	

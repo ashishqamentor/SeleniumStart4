@@ -3,14 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="seleniumStart.TestNgDemo">
+      <class name="seleniumStart.testingRetry">
         <methods>
-          <include name="alertEx"/>
-          <include name="launch"/>
-          <include name="selectEx"/>
           <include name="terminate"/>
+          <include name="selectEx"/>
+          <include name="launch"/>
         </methods>
-      </class> <!-- seleniumStart.TestNgDemo -->
+      </class> <!-- seleniumStart.testingRetry -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

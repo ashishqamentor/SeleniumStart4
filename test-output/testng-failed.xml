@@ -7,13 +7,15 @@
     <parameter name="name" value="ashish"/>
     <groups>
       <run>
-        <include name="regression"/>
+        <include name="sanity"/>
       </run>
     </groups>
     <classes>
       <class name="seleniumStart.TestNgDemo">
         <methods>
-          <include name="alertEx" invocation-numbers="0"/>
+          <include name="selectEx" invocation-numbers="0"/>
+          <include name="launch"/>
+          <include name="terminate"/>
         </methods>
       </class> <!-- seleniumStart.TestNgDemo -->
     </classes>
