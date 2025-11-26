@@ -3,13 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="seleniumStart.testingRetry">
+      <class name="datareading.datareadingDataprovider">
         <methods>
-          <include name="terminate"/>
-          <include name="selectEx"/>
+          <include name="login"/>
           <include name="launch"/>
         </methods>
-      </class> <!-- seleniumStart.testingRetry -->
+      </class> <!-- datareading.datareadingDataprovider -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

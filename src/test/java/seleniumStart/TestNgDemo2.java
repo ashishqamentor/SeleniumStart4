@@ -38,8 +38,7 @@ public class TestNgDemo2
 		 Actions a = new Actions(w);
 		a.dragAndDrop(dragable, dropable).build().perform();
 			
-	}
-	
+	}	
 
 	@Test(priority = 2)
 	public void fileupload()

@@ -2,7 +2,10 @@ package seleniumStart;
 
 import static org.testng.Assert.assertEquals;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.time.Duration;
+import java.util.Properties;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -10,6 +13,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
@@ -20,14 +25,36 @@ import org.testng.annotations.Test;
 
 public class TestNgDemo 
 {
-
 	WebDriver w;
 	@BeforeMethod(groups = {"regression","sanity"})
-	public void launch()
+	public void launch() throws Exception
 	{
-		ChromeOptions op = new ChromeOptions();
-		op.addArguments("--incognito");
-		w= new ChromeDriver(op);
+		FileInputStream fis = new FileInputStream("./config.properties");
+		Properties p = new Properties();
+		p.load(fis);
+		String browser = p.getProperty("browser");
+		
+		//generic method to handle chrome, edge , chromeheadless , edgeheadless modes	
+		if(browser.contains("chrome")) // chromeheadless
+		{
+			ChromeOptions op = new ChromeOptions();
+			if(browser.contains("headless"))
+			{
+				op.addArguments("headless");
+			}		
+			op.addArguments("--incognito");			
+			w= new ChromeDriver(op);
+		}
+		if(browser.contains("edge"))  // edgeheadless
+		{
+			EdgeOptions op = new EdgeOptions();
+			if(browser.contains("headless"))
+			{
+				op.addArguments("headless");
+			}	
+			op.addArguments("inprivate");
+			w= new EdgeDriver(op);
+		}	
 		w.manage().window().maximize();
 		w.manage().deleteAllCookies();
 		w.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));	
@@ -57,6 +84,7 @@ public class TestNgDemo
 		s.selectByValue(opt);
 		s.selectByVisibleText(opt1);
 		assertEquals(false, true);
+		assert false ;
 	}
 	
 	
