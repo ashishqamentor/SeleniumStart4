@@ -1,61 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-11-25T22:28:41 IST" name="Default suite" finished-at="2025-11-25T22:28:43 IST" duration-ms="2767">
+  <suite started-at="2025-11-29T18:48:53 IST" name="Default suite" finished-at="2025-11-29T18:48:59 IST" duration-ms="5718">
     <groups>
     </groups>
-    <test started-at="2025-11-25T22:28:41 IST" name="Default test" finished-at="2025-11-25T22:28:43 IST" duration-ms="2767">
-      <class name="datareading.datareadingDataprovider">
-        <test-method is-config="true" signature="launch()[pri:0, instance:datareading.datareadingDataprovider@7d9d0818]" started-at="2025-11-25T22:28:41 IST" name="launch" finished-at="2025-11-25T22:28:42 IST" duration-ms="1724" status="PASS">
+    <test started-at="2025-11-29T18:48:53 IST" name="Default test" finished-at="2025-11-29T18:48:59 IST" duration-ms="5718">
+      <class name="assignment.sausedemo">
+        <test-method is-config="true" signature="launch()[pri:0, instance:assignment.sausedemo@4681c175]" started-at="2025-11-29T18:48:53 IST" name="launch" finished-at="2025-11-29T18:48:56 IST" duration-ms="2023" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launch -->
-        <test-method signature="login(java.lang.String,java.lang.String)[pri:0, instance:datareading.datareadingDataprovider@7d9d0818]" started-at="2025-11-25T22:28:42 IST" name="login" data-provider="userpass" finished-at="2025-11-25T22:28:43 IST" duration-ms="984" status="FAIL">
-          <exception class="org.testng.internal.reflect.MethodMatcherException">
-            <message>
-              <![CDATA[
-[public void datareading.datareadingDataprovider.login(java.lang.String,java.lang.String)] has no parameters defined but was found to be using a data provider (either explicitly specified or inherited from class level annotation).
-Data provider mismatch
-Method: login([java.lang.String arg0, java.lang.String arg1])
-Arguments: [(java.lang.String) standard_user,(java.lang.String) secret_sauce,(java.lang.String) https://www.saucedemo.com/inventory.html]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.testng.internal.reflect.MethodMatcherException: 
-[public void datareading.datareadingDataprovider.login(java.lang.String,java.lang.String)] has no parameters defined but was found to be using a data provider (either explicitly specified or inherited from class level annotation).
-Data provider mismatch
-Method: login([java.lang.String arg0, java.lang.String arg1])
-Arguments: [(java.lang.String) standard_user,(java.lang.String) secret_sauce,(java.lang.String) https://www.saucedemo.com/inventory.html]
-at org.testng.internal.reflect.DataProviderMethodMatcher.getConformingArguments(DataProviderMethodMatcher.java:46)
-at org.testng.internal.Parameters.injectParameters(Parameters.java:915)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-at org.testng.TestRunner.privateRun(TestRunner.java:741)
-at org.testng.TestRunner.run(TestRunner.java:616)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-at org.testng.TestNG.runSuites(TestNG.java:1112)
-at org.testng.TestNG.run(TestNG.java:1079)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.testng.internal.reflect.MethodMatcherException -->
+        <test-method signature="additem()[pri:0, instance:assignment.sausedemo@4681c175]" started-at="2025-11-29T18:48:56 IST" name="additem" finished-at="2025-11-29T18:48:59 IST" duration-ms="3470" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- login -->
-      </class> <!-- datareading.datareadingDataprovider -->
+        </test-method> <!-- additem -->
+        <test-method is-config="true" signature="terninate()[pri:0, instance:assignment.sausedemo@4681c175]" started-at="2025-11-29T18:48:59 IST" name="terninate" finished-at="2025-11-29T18:48:59 IST" duration-ms="188" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- terninate -->
+      </class> <!-- assignment.sausedemo -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

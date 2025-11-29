@@ -3,12 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="datareading.datareadingDataprovider">
+      <class name="assignment.sausedemo">
         <methods>
-          <include name="login"/>
+          <include name="terninate"/>
           <include name="launch"/>
+          <include name="additem"/>
         </methods>
-      </class> <!-- datareading.datareadingDataprovider -->
+      </class> <!-- assignment.sausedemo -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
