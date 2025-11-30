@@ -153,6 +153,55 @@ public class sausedemo
 		
 	}
 	
+
+	public String exceldatRead() throws Exception
+	{
+		FileInputStream fis = new FileInputStream("./Data/login.xlsx");
+		XSSFWorkbook wb = new XSSFWorkbook(fis);
+		XSSFSheet sh = wb.getSheetAt(1);
+		int rowcount = sh.getLastRowNum();
+		
+		String prodlist ="";
+		for(int i =0;i<rowcount;i++)
+		{
+			XSSFRow row = sh.getRow(i+1);
+			XSSFCell cell = row.getCell(0);
+			String product = cell.getStringCellValue().trim();
+			prodlist =prodlist+ product+ ",";       // creating , seperated list of all items and then using it further
+			
+		}
+		return prodlist;
+		
+	}
+	
+	@Test
+	public void additemMethod2() throws Exception
+	{
+		w.get("https://www.saucedemo.com/");
+		w.findElement(By.cssSelector("#user-name")).sendKeys("standard_user");
+		w.findElement(By.cssSelector("#password")).sendKeys("secret_sauce");
+		w.findElement(By.cssSelector("#login-button")).click();
+		
+		// making array of product splitting them with ,
+		String productlist =exceldatRead();
+		String productsArry[] = productlist.split(",");
+		
+		for(String product :productsArry)
+		{
+			List<WebElement> list = w.findElements(By.xpath("//div[@class='inventory_item']"));
+			for(WebElement temp :list)
+			{
+				String prodcutEle = temp.findElement(By.xpath("div[2]/div/a")).getText().trim();
+				if(product.contains(prodcutEle))
+				{
+					temp.findElement(By.xpath("div[2]/div[2]/button")).click();
+				}
+			}			
+		}//for
+			
+		basket();
+		screenshot();
+}
 	@AfterTest
 	public void terninate()
 	{

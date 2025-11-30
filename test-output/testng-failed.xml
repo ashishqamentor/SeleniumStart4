@@ -7,7 +7,7 @@
         <methods>
           <include name="terninate"/>
           <include name="launch"/>
-          <include name="additem"/>
+          <include name="additemMethod2"/>
         </methods>
       </class> <!-- assignment.sausedemo -->
     </classes>
